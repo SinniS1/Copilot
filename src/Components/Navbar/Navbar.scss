@@ -45,7 +45,7 @@
       .cross {
         position: absolute;
         top: 5px;
-        left: 295px;
+        left: 290px;
       }
     }
     .profile-info {
@@ -55,7 +55,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      img {
+        &:hover {
+          height: 19px;
+          width: 19px;
+        }
+      }
     }
+    span {
+      &:hover {
+        color: lightgray;
+      }
+    }
+    cursor: pointer;
   }
 
   .bottom-Nav {
@@ -65,19 +77,70 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 150px;
+    padding: 0 150px;
     .Features-List {
-      // border: 1px solid red;
       height: 40px;
-      width: 950px;
+      width: 100%;
       font-size: 15px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 20px;
 
       .Head {
         font-size: 22px;
         font-weight: bolder;
+      }
+      span:nth-child(1) {
+        cursor: pointer;
+        &:hover {
+          color: #2f81eb;
+        }
+      }
+      span:nth-child(6) {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &::before {
+          content: '';
+          display: inline-block;
+          height: 1px;
+          width: 100%;
+          background-color: white;
+          position: absolute;
+          bottom: -5px;
+        }
+        &:hover {
+          color: #2f81eb;
+        }
+        &:hover:before {
+          background-color: #2f81eb;
+        }
+      }
+      span:not(:nth-child(1), :nth-child(6)) {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &::before {
+          content: '';
+          display: inline-block;
+          height: 1px;
+          width: 50%;
+          transition: width 0.2s ease-in;
+          position: absolute;
+          bottom: -5px;
+        }
+        &:hover {
+          color: #2f81eb;
+        }
+        &:hover:before {
+          background-color: #2f81eb;
+          width: 100%;
+        }
       }
     }
   }

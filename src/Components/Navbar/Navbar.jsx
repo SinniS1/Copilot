@@ -29,9 +29,9 @@ const Navbar = () => {
           <span>Explore</span>
         </div>
         <div className="profile-info">
-          <img src={bell} alt="bell" height={15} width={15} />
-          <img src={add} alt="add" height={15} width={15} />
-          <img src={profile} alt="profile" height={20} width={20} />
+          <img src={bell} alt="bell" height={18} width={18} />
+          <img src={add} alt="add" height={18} width={18} />
+          <img src={profile} alt="profile" height={18} width={18} />
         </div>
       </div>
       <div className="bottom-Nav">
