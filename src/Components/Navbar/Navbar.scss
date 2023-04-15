@@ -1,0 +1,84 @@
+.Navbar {
+  // border: 1px solid red;
+  border-bottom: 1px solid #1f1931;
+  height: auto;
+  width: 100%;
+  color: white;
+  box-shadow: 0px 2px 7px #120e1c;
+
+  .top-Nav {
+    // border: 1px solid blue;
+    border-bottom: 1px solid #1f1931;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+
+    .links {
+      // border: 1px solid yellow;
+      height: 30px;
+      width: 720px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      position: relative;
+
+      input {
+        width: 270px;
+        height: 30px;
+        background-color: #2e334a;
+        outline: none;
+        border: 1px solid #57606a;
+        border-radius: 5px;
+        padding: 0 10px;
+        font-size: 15px;
+        color: white;
+        &::placeholder {
+          color: lightgray;
+          font-size: 13px;
+          font-weight: lighter;
+        }
+      }
+      .cross {
+        position: absolute;
+        top: 5px;
+        left: 295px;
+      }
+    }
+    .profile-info {
+      // border: 1px solid yellow;
+      width: 100px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .bottom-Nav {
+    // border: 1px solid yellow;
+    height: 75px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 150px;
+    .Features-List {
+      // border: 1px solid red;
+      height: 40px;
+      width: 950px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .Head {
+        font-size: 22px;
+        font-weight: bolder;
+      }
+    }
+  }
+}
