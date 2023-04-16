@@ -19,10 +19,10 @@
     .links {
       // border: 1px solid yellow;
       height: 30px;
-      width: 720px;
+      width: auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 20px;
       font-size: 14px;
       position: relative;
 
@@ -45,7 +45,7 @@
       .cross {
         position: absolute;
         top: 5px;
-        left: 290px;
+        left: 300px;
       }
     }
     .profile-info {
@@ -73,11 +73,11 @@
   .bottom-Nav {
     // border: 1px solid yellow;
     height: 75px;
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 150px;
+    padding-left: 150px;
     .Features-List {
       height: 40px;
       width: 100%;
@@ -107,7 +107,7 @@
           content: '';
           display: inline-block;
           height: 1px;
-          width: 100%;
+          width: 80%;
           background-color: white;
           position: absolute;
           bottom: -5px;
@@ -139,7 +139,7 @@
         }
         &:hover:before {
           background-color: #2f81eb;
-          width: 100%;
+          width: 80%;
         }
       }
     }
