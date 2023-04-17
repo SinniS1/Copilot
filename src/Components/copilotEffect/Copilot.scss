@@ -181,8 +181,10 @@
             align-items: center;
             justify-content: center;
           }
-          animation: float 0.5s 2.5s ease-in normal;
           opacity: 0;
+        }
+        .floating {
+          animation: float 0.5s 2.5s ease-in normal;
           transform: translateY(50px);
         }
         .visible {
@@ -191,7 +193,7 @@
         }
         @keyframes float {
           0% {
-            opacity: 0.3;
+            opacity: 0;
             transform: translateY(30px);
           }
           100% {

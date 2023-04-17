@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Copilot.scss'
 
 const Copilot = () => {
@@ -32,6 +32,91 @@ const Copilot = () => {
     setFloat(true)
   }
 
+  // Animation on scroll
+  const [isVisible1, setIsVisible1] = useState(false)
+  const [isVisible2, setIsVisible2] = useState(false)
+  const [isVisible3, setIsVisible3] = useState(false)
+  const [isVisible4, setIsVisible4] = useState(false)
+  const ref1 = useRef(null)
+  const ref2 = useRef(null)
+  const ref3 = useRef(null)
+  const ref4 = useRef(null)
+
+  useEffect(() => {
+    const observer1 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible1(true)
+        } else {
+          setIsVisible1(false)
+          setShowText1(false)
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Change this value to adjust when the animation is triggered
+      }
+    )
+    observer1.observe(ref1.current)
+
+    const observer2 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible2(true)
+        } else {
+          setIsVisible2(false)
+          setShowText2(false)
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Change this value to adjust when the animation is triggered
+      }
+    )
+    observer2.observe(ref2.current)
+
+    const observer3 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible3(true)
+        } else {
+          setIsVisible3(false)
+          setShowText3(false)
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Change this value to adjust when the animation is triggered
+      }
+    )
+    observer3.observe(ref3.current)
+
+    const observer4 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible4(true)
+        } else {
+          setIsVisible4(false)
+          setFloat(false)
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Change this value to adjust when the animation is triggered
+      }
+    )
+    observer4.observe(ref4.current)
+    return () => {
+      observer1.unobserve(ref1.current)
+      observer2.unobserve(ref2.current)
+      observer3.unobserve(ref3.current)
+      observer4.unobserve(ref4.current)
+    }
+  }, [])
   return (
     <div className="Section2">
       <div className="CopilotEffect">
@@ -61,20 +146,29 @@ const Copilot = () => {
               <br />
             </span>
             <span
-              className={`gray type1  ${showText1 ? 'visible' : ''}`}
+              className={`gray  ${isVisible1 ? 'type1' : ''} ${
+                showText1 ? 'visible' : ''
+              }`}
               onAnimationEnd={handleAnimationEnd1}
+              ref={ref1}
             >
               // Determine whether the sentiment of the text is positive
             </span>
             <span
-              className={`gray  type2 ${showText2 ? 'visible' : ''}`}
+              className={`gray ${isVisible2 ? 'type2' : ''} ${
+                showText2 ? 'visible' : ''
+              }`}
               onAnimationEnd={handleAnimationEnd2}
+              ref={ref2}
             >
               // Use a web service
             </span>
             <span
-              className={`type3  ${showText3 ? 'visible' : ''}`}
+              className={` ${isVisible3 ? 'type3' : ''}  ${
+                showText3 ? 'visible' : ''
+              }`}
               onAnimationEnd={handleAnimationEnd3}
+              ref={ref3}
             >
               <span className="orange">async function </span>
               <span className="purple">is Positive </span>
@@ -82,8 +176,11 @@ const Copilot = () => {
             </span>
             {/* <br /> */}
             <div
-              className={`float-animation ${float ? 'visible' : ''}`}
+              className={` float-animation ${isVisible4 ? 'floating' : ''} ${
+                float ? 'visible' : ''
+              }`}
               onAnimationEnd={handleAnimationEnd4}
+              ref={ref4}
             >
               <span className="line">
                 <span className="orange">&nbsp;&nbsp;&nbsp;&nbsp;const</span>
@@ -125,8 +222,8 @@ const Copilot = () => {
                 <span className="purple">json{`()`};&nbsp;</span>
               </span>
               <span className="line">
-                &nbsp;&nbsp;&nbsp;&nbsp; <span className="orange">const</span>
-                <span className="white">json.</span>
+                &nbsp;&nbsp;&nbsp; <span className="orange">const</span>
+                <span className="white">&nbsp;json.</span>
                 <span className="blue">label === </span>
                 <span className="purple">"pos"</span>
                 <span className="white">{`;`}</span>
