@@ -1,13 +1,14 @@
 .Section2 {
   // border: 1px solid red;
-  height: 50vw;
+  height: fit-content;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 5vw;
   .CopilotEffect {
     height: 500px;
-    width: 60vw;
+    width: 70vw;
     border: 1px solid #30363d;
     border-radius: 10px;
 

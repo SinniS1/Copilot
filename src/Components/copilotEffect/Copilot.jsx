@@ -55,7 +55,7 @@ const Copilot = () => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5, // Change this value to adjust when the animation is triggered
+        threshold: 0.5,
       }
     )
     observer1.observe(ref1.current)
@@ -72,7 +72,7 @@ const Copilot = () => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5, // Change this value to adjust when the animation is triggered
+        threshold: 0.5,
       }
     )
     observer2.observe(ref2.current)
@@ -89,7 +89,7 @@ const Copilot = () => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5, // Change this value to adjust when the animation is triggered
+        threshold: 0.5,
       }
     )
     observer3.observe(ref3.current)
@@ -106,7 +106,7 @@ const Copilot = () => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5, // Change this value to adjust when the animation is triggered
+        threshold: 0.5,
       }
     )
     observer4.observe(ref4.current)
