@@ -1,5 +1,6 @@
 import React from 'react'
 import './Section1.scss'
+import Arrow from './HoverArrow/Arrow'
 const Section1 = () => {
   return (
     <div className="Section1">
@@ -10,9 +11,9 @@ const Section1 = () => {
           functions in real time, right from editor.
         </p>
         <div className="buttons">
-          <button className="btn1">
+          <button className="btn1 arrowButton">
             Start my free trial
-            <span className="arrow">{'->'}</span>
+            <Arrow />
           </button>
           <button className="btn2">Compare plans</button>
         </div>

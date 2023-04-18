@@ -1,0 +1,68 @@
+.arrowButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  .Arrow {
+    // border: 1px solid red;
+    position: relative;
+    .front {
+      border: 1px solid transparent;
+      width: 20px;
+      height: 20px;
+      transform: translateX(0px) rotate(360deg);
+      transition: transform 0.2s ease-in-out;
+      .top {
+        &::before {
+          content: '';
+          position: absolute;
+          height: 2px;
+          width: 10px;
+          background-color: black;
+          top: 5px;
+          right: 5px;
+          transform: rotate(45deg);
+          border-radius: 1px;
+        }
+      }
+      .bottom {
+        &::before {
+          content: '';
+          position: absolute;
+          height: 2px;
+          width: 10px;
+          background-color: black;
+          bottom: 5px;
+          right: 5px;
+          transform: rotate(-45deg);
+          border-radius: 1px;
+        }
+      }
+    }
+
+    .tail {
+      &::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 0px;
+        background-color: black;
+        bottom: 9px;
+        right: -1px;
+        transform: rotate(0deg);
+        border-radius: 1px;
+        transform: translateX(-10px);
+        transition: all 0.2s ease-out;
+      }
+    }
+  }
+  &:hover .front {
+    transform: translateX(5px) rotate(360deg);
+  }
+
+  &:hover .tail::before {
+    transform: translateX(-5px);
+    width: 15px;
+  }
+}
