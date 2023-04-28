@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './Copilot.scss'
+import Typing from './Typing'
+import Float from './Float'
 
 const Copilot = () => {
   const generateSpans = () => {
@@ -33,20 +35,20 @@ const Copilot = () => {
   }
 
   // Animation on scroll
-  const [isVisible1, setIsVisible1] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
   const ref1 = useRef(null)
 
   useEffect(() => {
     const observer1 = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible1(true)
+          setIsVisible(true)
         } else {
           setFloat(false)
           setShowText1(false)
           setShowText2(false)
           setShowText3(false)
-          setIsVisible1(false)
+          setIsVisible(false)
         }
       },
       {
@@ -89,34 +91,45 @@ const Copilot = () => {
               <br />
             </span>
             <div className="animation" ref={ref1}>
-              <span
-                className={`gray  ${isVisible1 ? 'type1' : ''} ${
-                  showText1 ? 'visible' : 'notVisible'
-                }`}
-                onAnimationEnd={handleAnimationEnd1}
-              >
-                // Determine whether the sentiment of the text is positive
-              </span>
-              <span
-                className={`gray ${isVisible1 ? 'type2' : ''} ${
-                  showText2 ? 'visible' : 'notVisible'
-                }`}
-                onAnimationEnd={handleAnimationEnd2}
-              >
-                // Use a web service
-              </span>
-              <span
-                className={` ${isVisible1 ? 'type3' : ''}
-                  ${showText3 ? 'visible' : 'notVisible'}
-                  `}
-                onAnimationEnd={handleAnimationEnd3}
-              >
-                <span className="orange">async function </span>
-                <span className="purple">is Positive </span>
-                <span className="white">{`(text: string): Promise<boolean> {`}</span>
-              </span>
+              <Typing
+                isVisible={isVisible}
+                showText={showText1}
+                handleAnimationEnd={handleAnimationEnd1}
+                animationType={'type1'}
+                content={
+                  <>
+                    // Determine whether the sentiment of the text is positive
+                  </>
+                }
+              />
+              <Typing
+                isVisible={isVisible}
+                showText={showText2}
+                handleAnimationEnd={handleAnimationEnd2}
+                animationType={'type2'}
+                content={<>// Use a web service</>}
+              />
+              <Typing
+                isVisible={isVisible}
+                showText={showText3}
+                handleAnimationEnd={handleAnimationEnd3}
+                animationType={'type3'}
+                styleType={'gray'}
+                content={
+                  <>
+                    <span className="orange">async function </span>
+                    <span className="purple">is Positive </span>
+                    <span className="white">{`(text: string): Promise<boolean> {`}</span>
+                  </>
+                }
+              />
+              <Float
+                isVisible={isVisible}
+                showText={float}
+                handleAnimationEnd={handleAnimationEnd4}
+              />
               <div
-                className={` float-animation ${isVisible1 ? 'floating' : ''} ${
+                className={` float-animation ${isVisible ? 'floating' : ''} ${
                   float ? 'visible' : 'notVisible'
                 }`}
                 onAnimationEnd={handleAnimationEnd4}
