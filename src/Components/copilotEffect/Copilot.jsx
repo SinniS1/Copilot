@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import './Copilot.scss'
 import Typing from './Typing'
-import Float from './Float'
+import Section3Float from '../Section2/Section2Float'
 
-const Copilot = () => {
-  const generateSpans = () => {
+const Copilot = ({ nonType, Type1, Type2, Type3, Float, numLines }) => {
+  const generateSpans = (num) => {
     const spans = []
-    for (let i = 1; i <= 17; i++) {
+    for (let i = 1; i <= num; i++) {
       spans.push(
         <span className="num" key={i}>
           {i}
@@ -74,117 +74,41 @@ const Copilot = () => {
           </div>
         </div>
         <div className="Typing">
-          <span className="numberBar">{generateSpans()}</span>
+          <span className="numberBar">{generateSpans(numLines)}</span>
           <div className="typingSection">
-            <span className="white ">#!/usr/bin/env ts-node</span>
-            <span>
-              <br />
-            </span>
-            <span className="">
-              <span className="orange">import </span>
-              <span className="white">{`{ fetch  }`}</span>
-              <span className="orange"> from </span>
-              <span className="blue"> "fetch-h2" </span>
-              <span className="white">{`;`}</span>
-            </span>
-            <span>
-              <br />
-            </span>
+            {nonType}
             <div className="animation" ref={ref1}>
               <Typing
                 isVisible={isVisible}
                 showText={showText1}
                 handleAnimationEnd={handleAnimationEnd1}
                 animationType={'type1'}
-                content={
-                  <>
-                    // Determine whether the sentiment of the text is positive
-                  </>
-                }
+                styleType={'gray'}
+                content={<>{Type1}</>}
               />
               <Typing
                 isVisible={isVisible}
                 showText={showText2}
                 handleAnimationEnd={handleAnimationEnd2}
                 animationType={'type2'}
-                content={<>// Use a web service</>}
+                styleType={'gray'}
+                content={<>{Type2}</>}
               />
               <Typing
                 isVisible={isVisible}
                 showText={showText3}
                 handleAnimationEnd={handleAnimationEnd3}
                 animationType={'type3'}
-                styleType={'gray'}
-                content={
-                  <>
-                    <span className="orange">async function </span>
-                    <span className="purple">is Positive </span>
-                    <span className="white">{`(text: string): Promise<boolean> {`}</span>
-                  </>
-                }
+                content={<>{Type3}</>}
               />
-              <Float
+              <Typing
                 isVisible={isVisible}
                 showText={float}
                 handleAnimationEnd={handleAnimationEnd4}
+                animationType={'floating'}
+                styleType={'float-animation'}
+                content={<>{Float}</>}
               />
-              <div
-                className={` float-animation ${isVisible ? 'floating' : ''} ${
-                  float ? 'visible' : 'notVisible'
-                }`}
-                onAnimationEnd={handleAnimationEnd4}
-              >
-                <span className="line">
-                  <span className="orange">&nbsp;&nbsp;&nbsp;&nbsp;const</span>
-                  <span className="white">&nbsp;response</span>
-                  <span className="blue">&nbsp;=&nbsp;</span>
-                  <span className="orange">&nbsp;await&nbsp;</span>
-                  <span className="purple">&nbsp;await</span>
-                  <span className="blue">{`(\`http://text-processing.com/sentiment/\`,{`}</span>
-                </span>
-                <span className="blue line">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method:&nbsp;"POST",
-                </span>
-                <span className="blue line">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body:&nbsp;`text=
-                  <span className="white">{`\${text}`}</span>`,
-                </span>
-                <span className="blue line">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headers:&nbsp;{' '}
-                  <span className="white line"> {`\{`} </span>
-                </span>
-                <span className="white line">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Content-Type":&nbsp;"
-                  <span className="blue">
-                    application/x-www-form-urlencoded
-                  </span>
-                  ",
-                </span>
-                <span className="white line">
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {`\},`}
-                </span>
-                <span className="white line">
-                  &nbsp;&nbsp;&nbsp;&nbsp; {`\});`}
-                </span>
-                <span className="line">
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span className="orange">const</span>
-                  <span className="white">&nbsp;json</span>
-                  <span className="white">&nbsp;=&nbsp;</span>
-                  <span className="orange">await&nbsp;</span>
-                  <span className="white">response.</span>
-                  <span className="purple">json{`()`};&nbsp;</span>
-                </span>
-                <span className="line">
-                  &nbsp;&nbsp;&nbsp; <span className="orange">const</span>
-                  <span className="white">&nbsp;json.</span>
-                  <span className="blue">label === </span>
-                  <span className="purple">"pos"</span>
-                  <span className="white">{`;`}</span>
-                </span>
-                <span className="white line">&nbsp;{`}`}</span>
-                <div className="Cp-Button">Copilot</div>
-              </div>
             </div>
           </div>
         </div>
