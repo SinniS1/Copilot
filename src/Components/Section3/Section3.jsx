@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Section3.scss'
-import Arrow from '../Section1/HoverArrow/Arrow'
+import { useRef } from 'react'
 
 const Section3 = () => {
+  const videoRef = useRef(null)
+  useEffect(() => {
+    const observer1 = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoRef.current.playbackRate = 1
+          videoRef.current.play()
+        } else {
+          videoRef.current.pause()
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2,
+      }
+    )
+    observer1.observe(videoRef.current)
+    return () => {
+      observer1.unobserve(videoRef.current)
+    }
+  }, [])
+
   return (
     <div className="Section3">
       <div className="content">
@@ -15,12 +38,12 @@ const Section3 = () => {
       <div className="video">
         <video
           playsInline={true}
-          autoPlay={true}
+          autoPlay={false}
+          ref={videoRef}
           muted={true}
           width="1920"
           height="780"
           poster="https://github.githubassets.com/images/modules/site/copilot/hero/bg-poster@2x.webp"
-          loop={true}
         >
           <source
             type="video/webm"
