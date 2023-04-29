@@ -1,0 +1,60 @@
+.Section4 {
+  // border: 1px solid red;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 80px 0;
+
+  .BigCards {
+    // border: 1px solid red;
+    height: 431px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    .buttons {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+
+      button {
+        height: 55px;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn1 {
+        position: relative;
+        width: 100%;
+        background-color: white;
+        color: black;
+        box-shadow: none;
+        transition: box-shadow 0.1s ease-in;
+        &:hover {
+          box-shadow: 0px 20px 40px #47405c;
+        }
+      }
+
+      .btn2 {
+        position: relative;
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid gray;
+        color: white;
+        transition: border 0.1s ease-in;
+        &:hover {
+          border: 2px solid white;
+        }
+      }
+    }
+  }
+}
