@@ -13,6 +13,7 @@ const Section1 = () => {
           }
           headingFontSize={'70px'}
           ParaFontSize={'19px'}
+          SlidingAnimation={false}
         />
         <div className="buttons">
           <button className="btn1 arrowButton">

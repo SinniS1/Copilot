@@ -16,12 +16,14 @@ const ContentBlock = ({
           setRunAnimation(true)
         } else {
           setRunAnimation(false)
+          setSliding1End(false)
+          setSlding2End(false)
         }
       },
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.8,
+        threshold: 1,
       }
     )
     if (SlidingAnimation) {
@@ -49,7 +51,9 @@ const ContentBlock = ({
       >
         <span
           className={`heading ${runAnimation ? 'Sliding1' : ''}
-          ${Sliding1End ? 'visible' : ''}`}
+          ${Sliding1End ? 'visible' : ''}
+          ${SlidingAnimation && !Sliding1End && 'InVisible'}
+          `}
           style={{
             fontSize: headingFontSize,
           }}
@@ -60,6 +64,7 @@ const ContentBlock = ({
         <p
           className={`para ${runAnimation ? 'Sliding2' : ''}
           ${Slding2End ? 'visible' : ''}
+          ${SlidingAnimation && !Sliding1End && 'InVisible'}
           `}
           style={{
             fontSize: ParaFontSize,

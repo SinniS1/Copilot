@@ -19,15 +19,16 @@
   .Sliding1 {
     transform: translate(0px, 0px);
     animation: sliding 0.3s ease-in-out;
-    opacity: 0;
   }
   .Sliding2 {
     transform: translate(0px, 0px);
     animation: sliding 0.3s ease-in;
-    opacity: 0;
   }
   .visible {
     opacity: 1;
+  }
+  .InVisible {
+    opacity: 0;
   }
   @keyframes sliding {
     0% {
