@@ -17,20 +17,25 @@
     width: 50vw;
   }
   .Sliding1 {
-    transform: translateX(0px);
-    animation: sliding 0.5s ease-in-out;
+    transform: translate(0px, 0px);
+    animation: sliding 0.3s ease-in-out;
+    opacity: 0;
   }
   .Sliding2 {
-    transform: translateX(0px);
-    animation: sliding 0.5s 0.3s ease-in-out;
+    transform: translate(0px, 0px);
+    animation: sliding 0.3s ease-in;
+    opacity: 0;
+  }
+  .visible {
+    opacity: 1;
   }
   @keyframes sliding {
     0% {
-      transform: translateX(-100px);
+      transform: translate(-15px, 0px);
       opacity: 0;
     }
     100% {
-      transform: translateX(0px);
+      transform: translate(0px, 0px);
       opacity: 1;
     }
   }
