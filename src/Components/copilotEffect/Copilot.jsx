@@ -1,9 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import './Copilot.scss'
 import Typing from './Typing'
-import Section3Float from '../Section2/Section2Float'
 
-const Copilot = ({ nonType, Type1, Type2, Type3, Float, numLines }) => {
+const Copilot = ({
+  nonType,
+  Type1,
+  Type2,
+  Type3,
+  Float,
+  numLines,
+  activeNavbar,
+  nonActiveNavbar,
+}) => {
   const generateSpans = (num) => {
     const spans = []
     for (let i = 1; i <= num; i++) {
@@ -62,54 +70,58 @@ const Copilot = ({ nonType, Type1, Type2, Type3, Float, numLines }) => {
       observer1.unobserve(ref1.current)
     }
   }, [])
+
+  const [temp, setTemp] = useState(null)
+  const [nonActive, setNonActive] = useState([])
+  useEffect(() => {
+    setTemp(activeNavbar)
+    setNonActive(nonActiveNavbar)
+  }, [])
+
   return (
-    <div className="Section2">
-      <div className="CopilotEffect">
-        <div className="Nav">
-          <div className="pages">
-            <span className="active-page">Sentiments.ts</span>
-            <span>write_sql.go</span>
-            <span>parse_expenses.py</span>
-            <span>addresses.pb</span>
-          </div>
+    <div className="CopilotEffect">
+      <div className="Nav">
+        <div className="pages">
+          <span className="active-page">{temp && temp}</span>
+          {nonActive && nonActive.map((item) => <span key={item}>{item}</span>)}
         </div>
-        <div className="Typing">
-          <span className="numberBar">{generateSpans(numLines)}</span>
-          <div className="typingSection">
-            {nonType}
-            <div className="animation" ref={ref1}>
-              <Typing
-                isVisible={isVisible}
-                showText={showText1}
-                handleAnimationEnd={handleAnimationEnd1}
-                animationType={'type1'}
-                styleType={'gray'}
-                content={<>{Type1}</>}
-              />
-              <Typing
-                isVisible={isVisible}
-                showText={showText2}
-                handleAnimationEnd={handleAnimationEnd2}
-                animationType={'type2'}
-                styleType={'gray'}
-                content={<>{Type2}</>}
-              />
-              <Typing
-                isVisible={isVisible}
-                showText={showText3}
-                handleAnimationEnd={handleAnimationEnd3}
-                animationType={'type3'}
-                content={<>{Type3}</>}
-              />
-              <Typing
-                isVisible={isVisible}
-                showText={float}
-                handleAnimationEnd={handleAnimationEnd4}
-                animationType={'floating'}
-                styleType={'float-animation'}
-                content={<>{Float}</>}
-              />
-            </div>
+      </div>
+      <div className="Typing">
+        <span className="numberBar">{generateSpans(numLines)}</span>
+        <div className="typingSection">
+          {nonType}
+          <div className="animation" ref={ref1}>
+            <Typing
+              isVisible={isVisible}
+              showText={showText1}
+              handleAnimationEnd={handleAnimationEnd1}
+              animationType={'type1'}
+              styleType={'gray'}
+              content={<>{Type1}</>}
+            />
+            <Typing
+              isVisible={isVisible}
+              showText={showText2}
+              handleAnimationEnd={handleAnimationEnd2}
+              animationType={'type2'}
+              styleType={'gray'}
+              content={<>{Type2}</>}
+            />
+            <Typing
+              isVisible={isVisible}
+              showText={showText3}
+              handleAnimationEnd={handleAnimationEnd3}
+              animationType={'type3'}
+              content={<>{Type3}</>}
+            />
+            <Typing
+              isVisible={isVisible}
+              showText={float}
+              handleAnimationEnd={handleAnimationEnd4}
+              animationType={'floating'}
+              styleType={'float-animation'}
+              content={<>{Float}</>}
+            />
           </div>
         </div>
       </div>

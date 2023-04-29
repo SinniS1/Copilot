@@ -14,8 +14,9 @@ const Section2 = () => {
   const Type2 = <Sec2TypingLine2 />
   const Type3 = <Sec2TypingLine3 />
   const Float = <Section2Float />
+  const nonActiveNavbar = ['write_sql.go', 'parse_expenses.py', 'addresses.pb']
   return (
-    <div>
+    <div className="Section2">
       <Copilot
         nonType={nonType}
         Type1={Type1}
@@ -23,6 +24,8 @@ const Section2 = () => {
         Type3={Type3}
         Float={Float}
         numLines={17}
+        activeNavbar={'sentiments.ts'}
+        nonActiveNavbar={nonActiveNavbar}
       />
     </div>
   )
