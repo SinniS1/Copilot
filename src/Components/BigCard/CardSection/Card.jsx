@@ -29,7 +29,7 @@ const Card = ({ cardName, cardLink, cardImage, CardNum }) => {
   const handleAnimationEnd = () => {
     cardRef.current.classList.remove(`${CardNum}`)
   }
-
+  // Fix the card animatation issue late
   return (
     <div className={`Card `} ref={cardRef} onAnimationEnd={handleAnimationEnd}>
       <a href={cardLink} target="_blank">
