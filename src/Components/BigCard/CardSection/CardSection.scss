@@ -1,5 +1,5 @@
 .CardSection {
-  //   border: 1px solid red;
+  width: fit-content;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,18 +7,11 @@
 }
 
 .Card {
-  width: 160px;
-  height: 150px;
+  width: 11vw;
+  height: 10vw;
   background-color: #24292f;
   border-radius: 10px;
   border: 1px solid black;
-  // box-shadow: 0px 5px 15px #111417;
-  // transform: translateY(0px);
-  // transition: all 0.2s ease-in;
-  // &:hover {
-  //   box-shadow: 0px 2px 50px #476657;
-  //   transform: translateY(-10px);
-  // }
   a {
     border-top: 1px solid #383c42;
     border-radius: 10px;
@@ -32,8 +25,8 @@
     gap: 20px;
   }
   .CardImages {
-    height: 64px;
-    width: 64px;
+    height: 5vw;
+    width: 6vw;
   }
 
   .CardName {

@@ -138,12 +138,12 @@ const Section6 = () => {
             <span className="Perc">74%</span>
             <span className="PercCont">Focus on more satisfying work</span>
           </div>
-          <div style={{ border: '1px solid #777f89', margin: '0 50px' }}></div>
+          <div style={{ border: '1px solid #30363d', margin: '0 4vw' }}></div>
           <div className="firstPerc">
-            <span className="Perc">84%</span>
+            <span className="Perc">88%</span>
             <span className="PercCont">Feel more productive</span>
           </div>
-          <div style={{ border: '1px solid #777f89', margin: '0 50px' }}></div>
+          <div style={{ border: '1px solid #30363d', margin: '0 4vw' }}></div>
           <div className="firstPerc">
             <span className="Perc">96%</span>
             <span className="PercCont">Are faster with repetitive work</span>

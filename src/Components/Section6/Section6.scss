@@ -1,5 +1,5 @@
 .Section6 {
-  // border: 1px solid blue;
+  // border: 1px solid red;
   height: fit-content;
   width: 100%;
   display: flex;
@@ -7,14 +7,15 @@
 
   .Sec6LineContainer {
     // border: 1px solid red;
-    height: 180vh;
+    height: 1320px;
     display: flex;
     flex-direction: row;
     margin-left: 27vw;
     position: relative;
     .Sec6Line {
       position: relative;
-      height: 1457px;
+      // height: 1457px;
+      z-index: 10;
       .img {
         height: 25px;
         width: 25px;
@@ -23,19 +24,20 @@
         left: -10px;
       }
       .img1 {
-        top: 13vw;
+        top: 185px;
       }
       .img2 {
-        top: 17vw;
+        top: 245px;
       }
       .img3 {
-        top: 21vw;
+        top: 310px;
       }
       .img4 {
         top: 25vw;
+        top: 370px;
       }
       .img5 {
-        top: 42vw;
+        top: 645px;
       }
       .avatar {
         left: 30px;
@@ -46,37 +48,39 @@
       position: absolute;
       top: -300px;
       left: 2px;
-      z-index: -1;
+      z-index: 0;
     }
     // Box Animation
     .BoxAnimImg {
       position: absolute;
       // border: 1px solid red;
-      height: 100px;
-      width: 100px;
-      bottom: 20px;
-      left: 300px;
+      height: 70px;
+      width: 70px;
+      bottom: 0px;
+      left: 314px;
       // opacity: 0;
     }
   }
   .Sec6AnimContainer {
-    // border: 1px solid red;
+    // border: 1px solid blue;
     margin-top: 185px;
     height: 750px;
-    width: 60vw;
-    margin-left: 200px;
+    width: fit-content;
+    margin-left: 10vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     .Sec6PecentContainer {
-      //   border: 1px solid green;
+      // border: 1px solid green;
       display: flex;
       flex-direction: row;
+      width: fit-content;
       .firstPerc {
+        // border: 1px solid green;
         display: flex;
         flex-direction: column;
-        width: 190px;
+        width: 150px;
       }
       .Perc {
         font-size: 48px;

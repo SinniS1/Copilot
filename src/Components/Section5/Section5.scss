@@ -10,12 +10,14 @@
   .lineBox {
     // border: 1px solid red;
     height: 35vw;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    padding-left: 100px;
+    justify-content: space-between;
+    padding-left: 26vw;
+    gap: 100px;
+    padding-right: 10vw;
     .line {
       border: 1px solid #444a52;
       height: 100%;

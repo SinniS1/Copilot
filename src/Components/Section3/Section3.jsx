@@ -41,8 +41,8 @@ const Section3 = () => {
           autoPlay={false}
           ref={videoRef}
           muted={true}
-          width="1920"
-          height="780"
+          // width="1920"
+          // height="780"
           poster="https://github.githubassets.com/images/modules/site/copilot/hero/bg-poster@2x.webp"
         >
           <source
