@@ -1,0 +1,38 @@
+.Section7 {
+  // border: 1px solid red;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  .underLine {
+    border: 1px solid #30363d;
+    height: 1px;
+    width: 85%;
+  }
+
+  .GradiantText {
+    // border: 1px solid red;
+    width: 85%;
+    font-size: 3vw;
+    line-height: 1.2;
+    text-align: left;
+    margin-top: 50px;
+    position: relative;
+    background: linear-gradient(150deg, #93f5ec, #894eee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    svg {
+      position: absolute;
+      top: -1.5vw;
+      left: -5vw;
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
