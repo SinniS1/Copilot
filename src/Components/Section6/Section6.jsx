@@ -106,28 +106,33 @@ const Section6 = () => {
           alt="gradientLine"
           className="gradientLine"
         />
+        <img
+          src={`https://github.githubassets.com/images/modules/site/copilot/icon-diamond.png`}
+          alt="BoxAnim"
+          className="BoxAnimImg"
+        />
       </div>
       <div className="Sec6AnimContainer">
-        {/* <ContentBlock
+        <ContentBlock
           heading={`Keep flying with your favorite editor`}
           headingFontSize={'32px'}
           paragraph={`GitHub Copilot integrates directly into your editor including Neovim, JetBrains IDEs, Visual Studio, and Visual Studio Code—and is fast enough to use as you type.`}
           ParaFontSize={'20px'}
           SlidingAnimation={true}
-        /> */}
+        />
         {/* ----------------- */}
 
         <CardSection />
 
         {/* ----------------- */}
         <div style={{ height: '90px', width: '100%' }}></div>
-        {/* <ContentBlock
+        <ContentBlock
           heading={`The numbers speak for themselves`}
           headingFontSize={'32px'}
           paragraph={`Research has found GitHub Copilot helps developers code faster, focus on solving bigger problems, stay in the flow longer, and feel more fullfilled with their work.`}
           ParaFontSize={'20px'}
           SlidingAnimation={true}
-        /> */}
+        />
         <div className="Sec6PecentContainer">
           <div className="firstPerc">
             <span className="Perc">74%</span>

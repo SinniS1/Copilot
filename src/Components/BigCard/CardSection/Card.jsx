@@ -6,11 +6,9 @@ const Card = ({ cardName, cardLink, cardImage, CardNum }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           entry.target.classList.add(`${CardNum}`)
-          console.log({ cardName })
-          entry.target.classList.remove(`InVisible`)
         } else {
           entry.target.classList.remove(`${CardNum}`)
-          entry.target.classList.add(`InVisible`)
+          entry.target.classList.remove(`CardVisible`)
         }
       },
       {
@@ -26,12 +24,19 @@ const Card = ({ cardName, cardLink, cardImage, CardNum }) => {
     }
   }, [])
 
-  const handleAnimationEnd = () => {
-    cardRef.current.classList.remove(`${CardNum}`)
+  const handleAnimationEnd = (event) => {
+    if (event.animationName === 'SlindingCard') {
+      cardRef.current.classList.remove(`${CardNum}`)
+      cardRef.current.classList.remove(`${CardNum}}`)
+      cardRef.current.classList.add(`CardVisible`)
+    }
   }
-  // Fix the card animatation issue late
   return (
-    <div className={`Card `} ref={cardRef} onAnimationEnd={handleAnimationEnd}>
+    <div
+      className={`Card CardHover`}
+      ref={cardRef}
+      onAnimationEnd={handleAnimationEnd}
+    >
       <a href={cardLink} target="_blank">
         <img src={cardImage} alt="VisulaStudioLogo" className="CardImages" />
         <span className="CardName">{cardName}</span>

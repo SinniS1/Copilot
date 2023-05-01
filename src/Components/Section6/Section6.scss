@@ -7,7 +7,7 @@
 
   .Sec6LineContainer {
     // border: 1px solid red;
-    height: fit-content;
+    height: 180vh;
     display: flex;
     flex-direction: row;
     margin-left: 27vw;
@@ -48,11 +48,21 @@
       left: 2px;
       z-index: -1;
     }
+    // Box Animation
+    .BoxAnimImg {
+      position: absolute;
+      // border: 1px solid red;
+      height: 100px;
+      width: 100px;
+      bottom: 20px;
+      left: 300px;
+      // opacity: 0;
+    }
   }
   .Sec6AnimContainer {
     // border: 1px solid red;
     margin-top: 185px;
-    height: 100vh;
+    height: 750px;
     width: 60vw;
     margin-left: 200px;
     display: flex;

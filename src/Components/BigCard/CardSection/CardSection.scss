@@ -12,13 +12,13 @@
   background-color: #24292f;
   border-radius: 10px;
   border: 1px solid black;
-  box-shadow: 0px 5px 15px #111417;
-  transform: translateY(0px);
-  transition: all 0.2s ease-in;
-  &:hover {
-    box-shadow: 0px 2px 50px #476657;
-    transform: translateY(-10px);
-  }
+  // box-shadow: 0px 5px 15px #111417;
+  // transform: translateY(0px);
+  // transition: all 0.2s ease-in;
+  // &:hover {
+  //   box-shadow: 0px 2px 50px #476657;
+  //   transform: translateY(-10px);
+  // }
   a {
     border-top: 1px solid #383c42;
     border-radius: 10px;
@@ -40,37 +40,42 @@
     font-size: 12px;
     color: white;
   }
-}
-
-.InVisible {
   opacity: 0;
 }
+
 .Card1 {
-  transform: translateX(-30px);
+  animation: SlindingCard 0.3s 0.1s ease;
 }
 .Card2 {
   animation: SlindingCard 0.3s 0.1s ease;
-  transform: translateX(-30px);
 }
 .Card3 {
   animation: SlindingCard 0.3s 0.2s ease;
-  transform: translateX(-30px);
 }
 .Card4 {
   animation: SlindingCard 0.3s 0.3s ease;
-  transform: translateX(-30px);
 }
 @keyframes SlindingCard {
   0% {
     transform: translateX(-30px);
     opacity: 0;
-    box-shadow: none;
-  }
-  50% {
-    opacity: 0.5;
   }
   100% {
     transform: translateX(0px);
     opacity: 1;
+  }
+}
+.CardVisible {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.CardHover {
+  box-shadow: 0px 5px 15px #111417;
+  transform: translateY(0px);
+  // transition: all 0.2s ease-in;
+  &:hover {
+    box-shadow: 0px 2px 50px #476657;
+    transform: translateY(-5px);
   }
 }
