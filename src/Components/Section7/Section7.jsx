@@ -28,6 +28,9 @@ const Section7 = () => {
         present day. I am honored to be part of such a wonderful community that
         constantly inspires me to grow and learn.`}
       </span>
+      <div className="Footer">
+        <span>made with 💖 by 😎💻</span>
+      </div>
     </div>
   )
 }
