@@ -29,7 +29,7 @@ const Section7 = () => {
         constantly inspires me to grow and learn.`}
       </span>
       <div className="Footer">
-        <span>made with 💖 by 😎💻</span>
+        <span>made with 💖 by GEEK😎💻</span>
       </div>
     </div>
   )
