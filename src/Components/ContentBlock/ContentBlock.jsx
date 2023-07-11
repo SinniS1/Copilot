@@ -68,7 +68,7 @@ const ContentBlock = ({
           `}
           style={{
             fontSize: ParaFontSize,
-            textAlign: SlidingAnimation ? 'justify' : 'left',
+            textAlign: SlidingAnimation ? 'justify' : 'center',
           }}
           onAnimationEnd={handleAnimationEnd2}
         >

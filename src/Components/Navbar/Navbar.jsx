@@ -44,7 +44,7 @@ const Navbar = () => {
           <span className="Copilot">Copilot</span>
           <span>Code review</span>
           <span>Search</span>
-          <span>Search</span>
+          <span>Sachin</span>
           <span>Issues</span>
           <span>Discussions</span>
         </div>
