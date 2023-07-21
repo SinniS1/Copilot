@@ -1,6 +1,27 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useReducer, useRef, useState } from 'react'
 import './Copilot.scss'
 import Typing from './Typing'
+
+const initialState = {
+  showText1: false,
+  showText2: false,
+  showText3: false,
+  float: false,
+}
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'showText1':
+      return { ...state, showText1: true }
+    case 'showText2':
+      return { ...state, showText2: true }
+    case 'showText3':
+      return { ...state, showText3: true }
+    case 'float':
+      return { ...state, float: true }
+    default:
+      return state
+  }
+}
 
 const Copilot = ({
   nonType,
@@ -24,29 +45,33 @@ const Copilot = ({
     return spans
   }
 
-  const [showText1, setShowText1] = useState(false)
-  const [showText2, setShowText2] = useState(false)
-  const [showText3, setShowText3] = useState(false)
-  const [float, setFloat] = useState(false)
+  // Use Reducer instead of useState
+  const [state, dispatch] = useReducer(reducer, initialState)
+  const { showText1, showText2, showText3, float } = state
 
-  const handleAnimationEnd1 = () => {
-    setShowText1(true)
-  }
-  const handleAnimationEnd2 = () => {
-    setShowText2(true)
-  }
-  const handleAnimationEnd3 = () => {
-    setShowText3(true)
-  }
-  const handleAnimationEnd4 = () => {
-    setFloat(true)
-  }
+  // const [showText1, setShowText1] = useState(false)
+  // const [showText2, setShowText2] = useState(false)
+  // const [showText3, setShowText3] = useState(false)
+  // const [float, setFloat] = useState(false)
+
+  // const handleAnimationEnd1 = () => {
+  //   setShowText1(true)
+  // }
+  // const handleAnimationEnd2 = () => {
+  //   setShowText2(true)
+  // }
+  // const handleAnimationEnd3 = () => {
+  //   setShowText3(true)
+  // }
+  // const handleAnimationEnd4 = () => {
+  //   setFloat(true)
+  // }
 
   // Animation on scroll
   const [isVisible, setIsVisible] = useState(false)
   const ref1 = useRef(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const observer1 = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -82,7 +107,7 @@ const Copilot = ({
     <div className="CopilotEffect">
       <div className="Nav">
         <div className="pages">
-          <span className="active-page">{temp && temp}</span>
+          <span className="active-page">{temp}</span>
           {nonActive && nonActive.map((item) => <span key={item}>{item}</span>)}
         </div>
       </div>
@@ -94,7 +119,7 @@ const Copilot = ({
             <Typing
               isVisible={isVisible}
               showText={showText1}
-              handleAnimationEnd={handleAnimationEnd1}
+              handleAnimationEnd={dispatch({ type: 'showText1' })}
               animationType={'type1'}
               styleType={'gray'}
               content={<>{Type1}</>}
@@ -102,7 +127,7 @@ const Copilot = ({
             <Typing
               isVisible={isVisible}
               showText={showText2}
-              handleAnimationEnd={handleAnimationEnd2}
+              handleAnimationEnd={dispatch({ type: 'showText2' })}
               animationType={'type2'}
               styleType={'gray'}
               content={<>{Type2}</>}
@@ -110,14 +135,14 @@ const Copilot = ({
             <Typing
               isVisible={isVisible}
               showText={showText3}
-              handleAnimationEnd={handleAnimationEnd3}
+              handleAnimationEnd={dispatch({ type: 'showText3' })}
               animationType={'type3'}
               content={<>{Type3}</>}
             />
             <Typing
               isVisible={isVisible}
               showText={float}
-              handleAnimationEnd={handleAnimationEnd4}
+              handleAnimationEnd={dispatch({ type: 'float' })}
               animationType={'floating'}
               styleType={'float-animation'}
               content={<>{Float}</>}
