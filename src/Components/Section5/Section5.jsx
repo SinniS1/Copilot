@@ -2,11 +2,7 @@ import React from 'react'
 import './Section5.scss'
 import Copilot from '../copilotEffect/Copilot'
 import Section5NonTyping from './Section5NonTyping'
-import {
-  Sec5TypingLine1,
-  Sec5TypingLine2,
-  Sec5TypingLine3,
-} from './Section5TypingLines'
+import { Sec5TypingLine3 } from './Section5TypingLines'
 import Section5Float from './Section5Float'
 import ContentBlock from '../ContentBlock/ContentBlock'
 import gitCommit from '../../assets/gitCommit.svg'
@@ -14,8 +10,8 @@ import Section2Float from '../Section2/Section2Float'
 
 const Section5 = () => {
   const nonType = <Section5NonTyping />
-  const Type1 = <Sec5TypingLine1 />
-  const Type2 = <Sec5TypingLine2 />
+  const Type1 = '// Get average runtime of successful runs in seconds'
+  const Type2 = `// Use a web service`
   const Type3 = <Sec5TypingLine3 />
   const Float = <Section5Float />
 

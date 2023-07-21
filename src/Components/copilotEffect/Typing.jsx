@@ -10,7 +10,7 @@ const Typing = ({
 }) => {
   return (
     <span
-      className={`${styleType}
+      className={`${styleType} typing
       ${isVisible ? animationType : ''} 
       ${showText ? 'visible' : 'notVisible'} `}
       onAnimationEnd={handleAnimationEnd}

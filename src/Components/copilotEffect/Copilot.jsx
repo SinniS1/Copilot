@@ -118,7 +118,7 @@ const Copilot = ({
               handleAnimationEnd={() => dispatch({ type: 'SHOW_TEXT_1' })}
               animationType={'type1'}
               styleType={'gray'}
-              content={<>{Type1}</>}
+              content={Type1}
             />
             <Typing
               isVisible={isVisible}
@@ -126,14 +126,14 @@ const Copilot = ({
               handleAnimationEnd={() => dispatch({ type: 'SHOW_TEXT_2' })}
               animationType={'type2'}
               styleType={'gray'}
-              content={<>{Type2}</>}
+              content={Type2}
             />
             <Typing
               isVisible={isVisible}
               showText={showText3}
               handleAnimationEnd={() => dispatch({ type: 'SHOW_TEXT_3' })}
               animationType={'type3'}
-              content={<>{Type3}</>}
+              content={Type3}
             />
             <Typing
               isVisible={isVisible}
@@ -141,7 +141,7 @@ const Copilot = ({
               handleAnimationEnd={() => dispatch({ type: 'FLOAT' })}
               animationType={'floating'}
               styleType={'float-animation'}
-              content={<>{Float}</>}
+              content={Float}
             />
           </div>
         </div>
