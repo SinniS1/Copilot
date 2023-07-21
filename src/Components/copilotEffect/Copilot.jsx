@@ -1,6 +1,47 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useReducer, useRef, useState } from 'react'
 import './Copilot.scss'
 import Typing from './Typing'
+
+// Initial state managed by useReducer
+const initialState = {
+  showText1: false,
+  showText2: false,
+  showText3: false,
+  float: false,
+  temp: null,
+  nonActive: [],
+  isVisible: false,
+}
+
+// Reducer function to handle state updates
+const copilotReducer = (state, action) => {
+  switch (action.type) {
+    case 'SHOW_TEXT_1':
+      return { ...state, showText1: true }
+    case 'SHOW_TEXT_2':
+      return { ...state, showText2: true }
+    case 'SHOW_TEXT_3':
+      return { ...state, showText3: true }
+    case 'FLOAT':
+      return { ...state, float: true }
+    case 'SET_TEMP':
+      return { ...state, temp: action.payload }
+    case 'SET_NON_ACTIVE':
+      return { ...state, nonActive: action.payload }
+    case 'SET_IS_VISIBLE':
+      return { ...state, isVisible: action.payload }
+    case 'RESET_ANIMATIONS':
+      return {
+        ...state,
+        showText1: false,
+        showText2: false,
+        showText3: false,
+        float: false,
+      }
+    default:
+      return state
+  }
+}
 
 const Copilot = ({
   nonType,
@@ -24,39 +65,21 @@ const Copilot = ({
     return spans
   }
 
-  const [showText1, setShowText1] = useState(false)
-  const [showText2, setShowText2] = useState(false)
-  const [showText3, setShowText3] = useState(false)
-  const [float, setFloat] = useState(false)
-
-  const handleAnimationEnd1 = () => {
-    setShowText1(true)
-  }
-  const handleAnimationEnd2 = () => {
-    setShowText2(true)
-  }
-  const handleAnimationEnd3 = () => {
-    setShowText3(true)
-  }
-  const handleAnimationEnd4 = () => {
-    setFloat(true)
-  }
+  // useReducer hook to manage state with the copilotReducer function
+  const [state, dispatch] = useReducer(copilotReducer, initialState)
+  const { showText1, showText2, showText3, float, temp, nonActive, isVisible } =
+    state
 
   // Animation on scroll
-  const [isVisible, setIsVisible] = useState(false)
   const ref1 = useRef(null)
-
   useEffect(() => {
     const observer1 = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          dispatch({ type: 'SET_IS_VISIBLE', payload: true })
         } else {
-          setFloat(false)
-          setShowText1(false)
-          setShowText2(false)
-          setShowText3(false)
-          setIsVisible(false)
+          dispatch({ type: 'RESET_ANIMATIONS' })
+          dispatch({ type: 'SET_IS_VISIBLE', payload: false })
         }
       },
       {
@@ -71,18 +94,16 @@ const Copilot = ({
     }
   }, [])
 
-  const [temp, setTemp] = useState(null)
-  const [nonActive, setNonActive] = useState([])
   useEffect(() => {
-    setTemp(activeNavbar)
-    setNonActive(nonActiveNavbar)
+    dispatch({ type: 'SET_TEMP', payload: activeNavbar })
+    dispatch({ type: 'SET_NON_ACTIVE', payload: nonActiveNavbar })
   }, [])
 
   return (
     <div className="CopilotEffect">
       <div className="Nav">
         <div className="pages">
-          <span className="active-page">{temp && temp}</span>
+          <span className="active-page">{temp}</span>
           {nonActive && nonActive.map((item) => <span key={item}>{item}</span>)}
         </div>
       </div>
@@ -94,7 +115,7 @@ const Copilot = ({
             <Typing
               isVisible={isVisible}
               showText={showText1}
-              handleAnimationEnd={handleAnimationEnd1}
+              handleAnimationEnd={() => dispatch({ type: 'SHOW_TEXT_1' })}
               animationType={'type1'}
               styleType={'gray'}
               content={<>{Type1}</>}
@@ -102,7 +123,7 @@ const Copilot = ({
             <Typing
               isVisible={isVisible}
               showText={showText2}
-              handleAnimationEnd={handleAnimationEnd2}
+              handleAnimationEnd={() => dispatch({ type: 'SHOW_TEXT_2' })}
               animationType={'type2'}
               styleType={'gray'}
               content={<>{Type2}</>}
@@ -110,14 +131,14 @@ const Copilot = ({
             <Typing
               isVisible={isVisible}
               showText={showText3}
-              handleAnimationEnd={handleAnimationEnd3}
+              handleAnimationEnd={() => dispatch({ type: 'SHOW_TEXT_3' })}
               animationType={'type3'}
               content={<>{Type3}</>}
             />
             <Typing
               isVisible={isVisible}
               showText={float}
-              handleAnimationEnd={handleAnimationEnd4}
+              handleAnimationEnd={() => dispatch({ type: 'FLOAT' })}
               animationType={'floating'}
               styleType={'float-animation'}
               content={<>{Float}</>}
